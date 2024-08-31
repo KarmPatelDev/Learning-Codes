@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    
+    table th{
+      background: orange;
+    }
+    table tr td{
+      text-align: center;
+    }
+    input{
+      margin: 2rem 0;
+    }
+    #success-message{
+      background: #1dbf73;
+      border-radius: 10px;
+      color: #fff;
+      padding: 10px;
+      margin: 0 auto;
+      display: none;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    #error-message{
+      background: #f76f65;
+      border-radius: 10px;
+      color: #fff;
+      padding: 10px;
+      margin: 0 auto;
+      display: none;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    .edit-btn{
+        background: #1dbf73;
+        color: #fff;
+        border: 0;
+        padding: 4px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    .delete-btn{
+        background: red;
+        color: #fff;
+        border: 0;
+        padding: 4px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    #modal{
+        display: none;
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+    }
+    #modal-form{
+        background: #fff;
+        width: 40%;
+        position: relative;
+        top: 20%;
+        margin: 0 auto;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    #modal h2{
+        margin: 0 0 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #000;
+    }
+    #modal input{
+        margin: 0;
+    }
+    #close-btn{
+        background: red;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        position:absolute;
+        top: -15px;
+        right: -15px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="search-bar">
+        <label>Search : </label><input type="text" name="search" id="search" autocomplete="off"/>
+        </div>
+          
+        <form id="addForm">
+            Name : <input type="text" name="sname" id="sname"><br><br>
+            Age : <input type="number" name="sage" id="sage"><br><br>
+            City : <input type="text" name="scity" id="scity"><br><br>
+            <input type="submit" name="save" id="save-button"/>
+        </form>
+        
+        <div id="error-message"></div>
+        <div id="success-message"></div>
+        
+        <div id="modal">
+            <div id="modal-form">
+                <h2>Edit Form</h2>
+                <form action="" method="" id="edit-form">
+                <table id="" width="100%" cellpadding="10px">
+                    <tr>
+                        <td>Name: </td>
+                        <td><input type="text" name="sname" id="edit-sname"><input type="text" name="sid" id="edit-sid" hidden></td>
+                    </tr>
+                    <tr>
+                        <td>Age: </td>
+                        <td><input type="number" name="sage" id="edit-sage"></td>
+                    </tr>
+                    <tr>
+                        <td>City: </td>
+                        <td><input type="text" name="scity" id="edit-scity"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="button" id="edit-submit" value="update"></td>
+                    </tr>
+                </table>
+            </form>
+                <div id="close-btn">X</div>
+            </div>
+        </div>
+
+        <table id="show-data" border="1" width="100%" cellspacing="0" cellpadding="10px">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="load-data">
+
+            </tbody>
+        </table>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+          // Fetch All Records
+          function loadTable(){
+            $("#load-data").html("");
+            $.ajax({
+               url: "http://localhost/tutorial/161-PHP-REST-API-Read-Data.php",
+               type: "GET",
+               success: function(data){
+                if(data.status == false){
+                $("#load-data").append("<tr><td colspan='6'><h2>" + data.message + "</h2></td></tr>");
+                }
+                else{
+                    $.each(data, function(key, value){
+                        $("#load-data").append("<tr><td>" + value.name + "</td><td>" + value.age + "</td><td>" + value.city + "</td><td><button class='edit-btn' data-eid='" + value.id + "'>Edit</button></td><td><button class='delete-btn' data-id='" + value.id + "'>Delete</button></td></tr>");
+                    });  
+                }
+               }
+            });
+          }
+          loadTable();
+
+
+
+          function message(message, status){
+            if(status == false){
+              $("#error-message").html(message).slideDown();
+              $("#success-message").slideUp();
+              setTimeout(function(){
+                $("#error-message").slideUp();
+              }, 4000);
+            }
+            else if(status == true){
+              $("#success-message").html(message).slideDown();
+              $("#error-message").slideUp();
+              setTimeout(function(){
+                $("#success-message").slideUp();
+              }, 4000);
+            }
+          }
+
+          function jsonData(targetForm){
+            var arr = $(targetForm).serializeArray();
+            // console.log(arr);
+
+            var obj = {};
+            for(var a= 0; a < arr.length; a++){
+                if(arr[a].value == ""){return false;}
+                obj[arr[a].name] = arr[a].value;
+            }
+            // console.log(obj);
+
+            var json_string = JSON.stringify(obj);
+            // console.log(json_string);
+
+            return json_string;
+          }
+
+          $("#save-button").on("click", function(e){    
+            e.preventDefault();
+
+            var jsonObj = jsonData("#addForm");
+            // console.log(jsonObj);
+            
+            if(jsonObj == false){
+               message("All Fields Are Required", false);
+            }
+            else{
+
+               $.ajax({
+               url: "http://localhost/tutorial/162-PHP-Rest-API-Create-and-Update-Data.php",
+               type: "POST",
+               data: jsonObj,
+               success: function(data){
+                message(data.message, data.status);
+
+                if(data.status == true){
+                    loadTable();
+                    $("#addForm").trigger("reset");
+                }
+               }   
+            });
+            }
+          });
+
+          $(document).on("click", ".delete-btn", function(){
+            
+            if(confirm("Do You Want To Delete?")){
+                var student_id = $(this).data("id");
+                var obj = {sid : student_id};
+                var myJSON = JSON.stringify(obj);
+                
+                $.ajax({
+                url: "http://localhost/tutorial/163-PHP-Rest-API-Delete-and-Search-Data.php",
+                type: "POST",
+                data: myJSON,
+                success: function(data){
+                    message(data.message, data.status);
+
+                    if(data.status == true){
+                        loadTable();
+                    }
+                }
+                });
+            }
+
+          });
+
+          $(document).on("click", ".edit-btn", function(){
+            $("#modal").show();
+
+            var student_id = $(this).data("eid");
+            var obj = {sid : student_id};
+            var myJSON = JSON.stringify(obj);
+            // console.log(myJSON);
+
+            $.ajax({
+               url: "http://localhost/tutorial/161-PHP-REST-API-Read-Data-2.php",
+               type: "POST",
+               data: myJSON,
+               success: function(data){
+                $("#edit-sid").val(data[0].id);
+                $("#edit-sname").val(data[0].name);
+                $("#edit-sage").val(data[0].age);
+                $("#edit-scity").val(data[0].city);
+               }
+            });
+
+          });
+
+
+          $("#edit-submit").on("click", function(e){    
+            e.preventDefault();
+
+            var jsonObj = jsonData("#edit-form");
+            console.log(jsonObj);
+            
+            if(jsonObj == false){
+               message("All Fields Are Required", false);
+            }
+            else{
+
+               $.ajax({
+               url: "http://localhost/tutorial/162-PHP-Rest-API-Create-and-Update-Data-2.php",
+               type: "POST",
+               data: jsonObj,
+               success: function(data){
+                message(data.message, data.status);
+
+                if(data.status == true){
+                    loadTable();
+                    $("#edit-form").trigger("reset");
+                    $("#modal").hide();
+                }
+               }   
+            });
+            }
+          });
+
+          $(document).on("click", "#close-btn", function(){
+            $("#modal").hide();
+          })
+
+          $("#search").on("keyup", function(){
+            var search_term = $(this).val();
+            $("#load-data").html("");
+
+            $.ajax({
+               url: "http://localhost/tutorial/163-PHP-Rest-API-Delete-and-Search-Data-2.php?search=" + search_term,
+               type: "GET",
+               success: function(data){
+                if(data.status == false){
+                $("#load-data").append("<tr><td colspan='6'><h2>" + data.message + "</h2></td></tr>");
+                }
+                else{
+                    $.each(data, function(key, value){
+                        $("#load-data").append("<tr><td>" + value.name + "</td><td>" + value.age + "</td><td>" + value.city + "</td><td><button class='edit-btn' data-eid='" + value.id + "'>Edit</button></td><td><button class='delete-btn' data-id='" + value.id + "'>Delete</button></td></tr>");
+                    });  
+                }
+               }   
+            });
+
+          })
+          
+        });
+    </script>
+
+</body>
+</html>

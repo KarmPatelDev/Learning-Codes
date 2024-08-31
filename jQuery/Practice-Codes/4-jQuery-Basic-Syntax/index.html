@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+  </style>
+</head>
+<body>
+
+    <div id="test"><i>Karm</i></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<!-- <script>
+    var a = document.getElementById("idName").innerHTML();
+    console.log(a);
+</script> -->
+
+<script>
+    //basic syntax
+    // $(document).ready(function(){
+            //further jQuery code
+    // });
+    //when the document(selector) is ready(open) then function is run
+    // we can use other selectors instead of document like css selectors
+    //ready() is the method in the () it execute when that event occur
+    //before dot portion is selector and after that is method()
+
+    
+
+    $(document).ready(function(){
+       var a = $("#test").html();
+       console.log(a);
+    });
+    // it is same as upper code but upper code run when whole dom is ready but below code is not work if the dom is not ready(if we use this in head tag so always use code in the body section)
+    $(function(){
+       var a = $("#test").html();
+       console.log(a);
+    });
+
+
+</script>
+</body>
+</html>

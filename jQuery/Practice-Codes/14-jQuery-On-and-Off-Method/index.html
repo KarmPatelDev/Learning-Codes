@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+  .red{
+    color: red;
+  }
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test val">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur <span>hy</span>with event with jQuery.</p>
+    </div>
+
+    <br>
+    <button id="clickbutton">Set Value</button>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+        // to event with different program
+      $('#box').on({
+        mouseout: function(){
+             $(this).css("background-color", "yellow");
+        },
+        mouseenter: function(){
+             $(this).css("background-color", "red");
+        }
+      });
+
+      // only one event
+    //   $('#clickbutton').on("click", function(){
+    //      $('#box').css("background-color", "orange");
+    //   });
+
+      // to event with same program
+    //   $('#clickbutton').on("click mouseenter", function(){
+    //      $('#box').css("background-color", "orange");
+    //   });
+
+      // remove the events
+      $('#clickbutton').click(function(){
+        $('#box').off("click mouseover");
+      });
+
+     
+
+    });
+</script>
+
+</html>

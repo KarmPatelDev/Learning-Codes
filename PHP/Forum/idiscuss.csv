@@ -1,0 +1,49 @@
+"category_id","category_name","category_description","category_doc"
+"1","Python","Python is a simple, general purpose, high level, and object-oriented programming language.Python is an interpreted scripting language also. Guido Van Rossum is known as the founder of Python programming.","2023-03-29 15:10:40"
+"2","Java","Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language. Java was developed by Sun Microsystems in the year 1995. James Gosling is known as the father of Java.","2023-03-29 15:12:55"
+"3","Django","Django is a web application framework written in Python programming language. It is based on MVT (Model View Template) design pattern. The Django is very demanding due to its rapid development feature.","2023-03-29 16:52:24"
+"4","JavaScript","JavaScript is a light-weight object-oriented programming language which is used by several websites for scripting the webpages. It is an interpreted, full-fledged programming language that enables dynamic interactivity on websites.","2023-03-29 16:56:40"
+"comment_id","comment_thread_id","comment_content","comment_user_id","comment_doc"
+"1","1","Then one new folder created webapp in same mysite directory is created.
+
+After changing settings.py and urls.py of mysite and also changing urls.py and views.py of webapp.
+
+when I run ","2","2023-03-31 19:51:16"
+"2","1","Performing system checks...
+
+    Unhandled exception in thread started by &lt;function wrapper at 0x24a7398&gt;
+    Traceback (most recent call last):
+    File ""/usr/lib/python2.7/site-packages/django/utils/autoreload.py"", line           
+    226, in wrapper
+    fn(*args, **kwargs)
+    File ""/usr/lib/python2.7/site-       
+    packages/django/core/management/commands/runserver.py"", line 121, in    
+    inner_run
+    self.check(display_num_errors=True)
+    File ""/usr/lib/python2.7/site-packages/django/core/management/base.py"",   
+    line 374, in check
+    include_deployment_checks=include_deployment_checks,
+    File ""/usr/lib/python2.7/site-packages/django/core/management/base.py"",    
+    line 361, in _run_checks
+    return checks.run_checks(**kwargs)
+    File ""/usr/lib/python2.7/site-packages/django/core/checks/registry.py"",   
+    line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+    File ""/usr/lib/python2.7/site-packages/django/core/checks/urls.py"", line 
+    14, ","2","2023-03-31 19:52:00"
+"contact_id","contact_name","contact_email","contact_subject","contact_message","contact_doc"
+"1","Karm Patel","xyz@gmail.com","I have to join you company","I am a qualified computer engineer. and it is very helpful for me.","2023-03-31 22:30:25"
+"2","Karm Patel","xyz@gmail.com","I have to join you company","I am a qualified &lt;computer engineer&gt;","2023-03-31 22:31:24"
+"3","&lt;&gt;","&lt;&gt;","&lt;&gt;","&lt;&gt;","2023-03-31 22:32:05"
+"thread_id","thread_category_id","thread_name","thread_description","thread_user_id","thread_doc"
+"1","3","Python Django not running","Firstly I installed Django using pip in my ""CentOS"" operating system. After that I performed these steps using terminal.
+django-admin startproject mysite
+a folder mysite is created with :
+manage.py and another subfolder mysite
+Then simply I just used these commands :
+python manage.py runserver
+and the server was running as clicked on the url : http://localhost:portnumber/
+But after that when I made another app to run it is not running, my step are as follows :","2","2023-03-31 19:49:03"
+"user_id","user_email","user_password","user_doc"
+"1","xyz@gmail.com","$2y$10$WGVmz2ZCqa1cpBxEYYBZJeE37ie7/ifEnTQx3/NbMBA90u/kMF0Uy","2023-03-30 23:00:42"
+"2","xyz2@gmail.com","$2y$10$xnnAvMnJT0uuh7tyKhDeBeKr9/r6NPxW2/gdRkN2N8xlfC02yCfcu","2023-03-30 23:08:04"

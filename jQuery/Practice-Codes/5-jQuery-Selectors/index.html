@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+  </style>
+</head>
+<body>
+
+    <div id="box" class="test">
+        <h2>Test Box 2</h2>
+        <p>Hello My Dear Friends, Good Morning</p>
+    </div>
+
+    <ul id="list">
+        <li>Orange</li>
+        <li class="test">Banana</li>
+        <li>Grapes</li>
+        <li class="test">Apple</li>
+        <li>Pineples</li>
+    </ul>
+    
+
+    <!-- Select By Id : $("#idName")
+    Select By Class : $(".className")
+    Select By TagName : $("tagName")
+    Select All Tag in html : $("*")
+
+    Select Parent child selector : ("ul li") 
+    it is select all li in the ul
+
+    Select Multiple classNames : $(".abc, .xyz")
+    Select Multiple Tags : $("div, p, h1")
+
+    Select first child : $("p:first") 
+    it select first p of all p Tags
+    Select last child : $("p:last") 
+    it select last p of all p Tags
+
+    Select even numbers tags : $("p:even") 
+    it select even number p tags of all p Tags
+    Select odd child : $("p:odd") 
+    it select odd number p tags of all p Tags -->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function(){
+       $("#list").css("color", "red");
+       $("#list").css("border", "1px solid black");
+       $("#list li").css("padding", "5px 0");
+       $(".list").css("color", "blue");
+       $("*").css("font-weight", "700");
+       $("li:first").css("color", "green");
+       $("li:last").css("color", "green");
+       $("ul li:eq(2)").css("color", "green"); //start from 0
+       $("ul li:gt(2)").css("color", "green"); //it is target after the 2th elements(0,1,2) of li
+       $("ul li:lt(2)").css("color", "green");  //it is target before the 2th elements(0,1,2) of li
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    #box{
+        border: 1px solid black;
+        width: 50px;
+    }
+  </style>
+</head>
+<body>
+    <div id="box" class="test">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+    <br>
+    <button id="animate">Animate</button>
+    <button id="stop">Stop</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    
+    // $(selector).animate({params(almost any css property but in camel case)}, speed, callback);
+
+    $(document).ready(function(){
+
+     $('#animate').click(function(){
+        $('#box').animate({
+            width: "+=500px"
+        }, 2000, function(){console.log("success")});
+        $('#box').animate({
+            height: "+=500px"
+        }, 2000, function(){console.log("success")});
+     });
+
+     $('#stop').click(function(){
+        //  $('#box').stop(); // it stop one animation at a time but another then run
+        // $('#box').stop(true);  // it stop all the animation
+        $('#box').stop(true, true); // it stop and goes to end point
+     });
+
+    });
+
+</script>
+</html>

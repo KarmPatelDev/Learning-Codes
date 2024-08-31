@@ -1,0 +1,59 @@
+<!-- 
+
+Regular Expression
+
+^ -> Start With
+$ -> End With
+[a-zA-Z0-9] -> For Ranging, One Capital Character or Small Character or Digit
+[^] -> After ^ all characters shuld not contained in value
++ -> + before that character can writtern many times(one time must)
+* -> * before that character can writtern many times(you can also avoid this)
+. -> .abc means abc before you can write any one character
+| -> all left side vharacters or all right side characters Valid
+(|) -> it work like above but for only characters under the brackets
+\d -> all digits included
+\D -> all digits not included
+\w -> any word character included(small, capital, underscore)
+\W -> any word character not included(small, capital, underscore)
+\s -> spaces, tab included
+\S -> spaces, tab not included
+\t -> tab only included
+
+\ -> we use this for write character that included to make regular expressions like .\  \\  \-
+
+ -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <form action="" id="iform">
+    <h4>Username</h4>
+    <p hidden>UserName is Note Valid</p>
+    <input type="text" name="username" class="username">
+    <h4>PassWord</h4>
+    <P hidden>PassWord is Not Valid</P>
+    <input type="text" name="password" class="password">
+    <h4>Email</h4>
+    <p hidden>Email is Not Valid</p>
+    <input type="text" name="email" class="email">
+    <h4>PhoneNumber</h4>
+    <p hidden>PhoneNumber is Not Valid</p>
+    <input type="text" name="phoneNumber" class="phoneNumber">
+    <div class="btn">
+      <button type="text">Submit</button>
+    </div>
+
+  </form>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

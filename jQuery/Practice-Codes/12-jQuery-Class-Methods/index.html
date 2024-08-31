@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    .first{
+        background-color: pink;
+    }
+    .second{
+        color: green;
+    }
+  </style>
+</head>
+<body>
+    <div id="box" class="test">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur <span>hy</span>with event with jQuery.</p>
+    </div>
+    <button id="addButton">Add Class</button>
+    <button id="removeButton">Remove Class</button>
+    <button id="toggleButton">Toggle Class</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+
+     $('#addButton').click(function(){
+        $('#box').addClass("first second");
+     });
+
+     $('#removeButton').click(function(){
+        $('#box').removeClass("first");
+     });
+
+     $('#toggleButton').click(function(){
+        $('#box').toggleClass("first");
+     });
+
+</script>
+</html>

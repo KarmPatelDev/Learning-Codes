@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    .first{
+        background-color: pink;
+    }
+    .second{
+        color: green;
+    }
+  </style>
+</head>
+<body>
+    <div id="box" class="test">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+    <button id="fadeIn">In</button>
+    <button id="fadeOut">Out</button>
+    <button id="fadeToggle">Toggle</button>
+    <button id="fadeTo">To</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    // animation are different of fadeIn, fadeOut
+    $(document).ready(function(){
+     $('#fadeIn').click(function(){
+        $('#box').fadeIn(3000, function(){
+            console.log("Fade In");
+        }); 
+     });
+
+     $('#fadeOut').click(function(){
+        $('#box').fadeOut("slow", function(){  // it add style display => none
+            console.log("Fade Out");
+        }); 
+     });
+
+     $('#fadeToggle').click(function(){
+        $('#box').fadeToggle(1000);
+     }); 
+
+     //fadeTo => How much we have to fade
+    //  $(selector).fadeTo(speed, opacity, callback);
+    $('#fadeTo').click(function(){
+        $('#box').fadeTo(1000, 0.1, function(){
+            console.log("FadeTo used to Toggle");
+        });
+    }); 
+
+     });
+
+</script>
+</html>

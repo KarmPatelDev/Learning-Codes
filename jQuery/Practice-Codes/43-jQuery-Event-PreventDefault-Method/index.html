@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+  </style>
+</head>
+<body>
+    <div id="box" class="test">
+        <a href="https://www.google.com/" id="link1">Link 1</a>
+        <br>
+        <a href="https://www.google.com/" id="link2">Link 2</a>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    // use for event preventDefault the elements
+    $(document).ready(function(){
+        $('#link1').click(function(e){
+             e.preventDefault(); // it is not work(prevent the previous state not click work)
+
+             var a = e.isDefaultPrevented(); // it return true or false(prevent or not)
+             console.log(a);
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+    #box{
+        padding: 30px;
+        border: 5px solid black;
+        margin: 20px;
+    }
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test">
+        <p>This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery.</p>
+    </div>
+
+    <button id="position">Position</button>
+    <button id="offset">OffSet</button>   
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        // offset give the top and left measure from where located it first child(top and left) but it can not consider particular tag padding or something other sizes.(it is ignore when measure)
+        // offset work according the window(document)
+        // position method consider it padding, border, margin  and then it measure the size from top and left(it is not ignore as a part of tag)
+        // position work according the parent tag
+        // We can get only top and left
+
+    $('#position').click(function(){
+       console.log($('#box').position());
+       var x = $('#box').position();
+       console.log(x.left + " and " + x.top);
+
+       //$('#box').position({top:100,left:100}); // it is not work
+       console.log(x.left + " and " + x.top);
+    }); 
+    
+    $('#offset').click(function(){
+       console.log($('#box').offset());  //it return object
+       var y = $('#box').offset();
+       console.log(y.left + " and " + y.top); //individual values
+
+       $('#box').offset({top:25,left:25}); //set the offset
+    });
+
+    });
+</script>
+
+</html>

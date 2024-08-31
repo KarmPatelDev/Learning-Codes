@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    .first{
+        background-color: pink;
+    }
+    .second{
+        color: green;
+    }
+  </style>
+</head>
+<body>
+    <div id="box" class="test">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur <span>hy</span>with event with jQuery.</p>
+    </div>
+    <button id="showButton">Show</button>
+    <button id="hideButton">Hide</button>
+    <button id="toggleButton">Toggle</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+
+     $('#showButton').click(function(){
+       // $('#box').show("fast");
+       $('#box').show(1000); // 1000 = 1second
+     });
+
+     $('#hideButton').click(function(){
+        $('#box').hide("slow", function(){
+            console.log("now it is hidden");
+        });  //second parameter is callback function
+     });
+
+     $('#toggleButton').click(function(){
+        $('#box').toggle();
+     });
+
+</script>
+</html>

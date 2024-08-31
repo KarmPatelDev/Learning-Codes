@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    #box{
+        border: 1px solid black;
+        width: 50px;
+    }
+  </style>
+</head>
+<body>
+<div id="main-outer">
+    <h2>Karm</h2>
+    <div id="outer" class="test">
+        <h2>Patel</h2>
+        <div id="inner" style="position:relative;">
+            <h2 id="child-head">Hello</h2>
+            <div class="test1">A</div>
+            <div>B</div>
+            <div id="child-c">C</div>
+            <div>D</div>
+            <div class="test1">E</div>
+            <div>F</div>
+        </div>   
+    </div>
+</div>
+   
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function(){
+
+        //Sibling Methods => parent are same
+ 
+    //   $('#child-c').siblings().css('background-color', 'red'); // it is use for all imediate siblings
+    //   $('#child-c').siblings('h2').css('background-color', 'yellow'); // it is use for specific sibling
+    //   $('#child-c').next().css('background-color', 'pink'); // it is use for target next sibling
+    //   $('#child-c').prev().css('background-color', 'pink'); // it is use for target previous sibling
+    //   $('#child-c').nextAll().css('background-color', 'pink'); // it is use for target next all siblings
+    //   $('#child-c').prevAll().css('background-color', 'pink'); // it is use for target previous all siblings
+      $('#child-c').nextUntil('.test1').css('background-color', 'pink'); // it is use for limit siblings until next test1 class tag  occur
+      $('#child-c').prevUntil('.test1').css('background-color', 'pink'); // it is use for limit siblings until previous test1 class tag  occur
+
+    });
+
+</script>
+</html>

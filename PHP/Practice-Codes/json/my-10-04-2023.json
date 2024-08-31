@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "name": "karm",
+        "age": "20",
+        "gender": "male",
+        "country": "ind"
+    },
+    {
+        "id": "2",
+        "name": "shivam",
+        "age": "70",
+        "gender": "male",
+        "country": "ind"
+    },
+    {
+        "id": "4",
+        "name": "Aryan",
+        "age": "10",
+        "gender": "male",
+        "country": "ind"
+    },
+    {
+        "id": "5",
+        "name": "dhyey",
+        "age": "100",
+        "gender": "male",
+        "country": "ind"
+    },
+    {
+        "id": "6",
+        "name": "harsh",
+        "age": "20",
+        "gender": "male",
+        "country": "ind"
+    },
+    {
+        "id": "7",
+        "name": "patel",
+        "age": "20",
+        "gender": "male",
+        "country": "ind"
+    }
+]

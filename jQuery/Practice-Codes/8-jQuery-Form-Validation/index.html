@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+</head>
+<body>
+    <h1>Form Events</h1>
+    <form action="" id="sform">
+        <label for="">Name -: </label><input type="text" id="sname">
+        <label for="">Class -: </label><input type="text" id="sclass">
+        <label for="">Country -: </label>
+         <select id="scountry">
+            <option value="india">India</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="china">China</option>
+         </select>
+         <button type="submit">Click Here</button>
+    </form>
+
+
+    <div id="box" class="test">
+        <h2>Test Box</h2>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function(){
+       $('#sname, #sclass, #scountry').focus(function(){ // when focus for input
+        $(this).css('background-color', 'lime');
+       });
+
+       $('#sname, #sclass, #scountry').blur(function(){  // when leave from focus input
+        $(this).css('background-color', '');
+       });
+
+       $('#scountry').change(function(){  // it is work on the select
+        // $(this).css('background-color', 'yellow');
+        var a = $(this).val();
+        $('.test').html(a);
+       });
+
+       $('#sname, #sclass').select(function(){  // it is work on the input 
+        $(this).css('color', 'pink');
+       });
+
+       $('#sform').submit(function(){
+        console.log('Form Submitted');  //it is print and suddenly go
+        alert('Form Submitted'); 
+       })
+
+    });
+    
+</script>
+
+</html>

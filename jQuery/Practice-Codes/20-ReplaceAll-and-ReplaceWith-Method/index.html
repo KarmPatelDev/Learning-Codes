@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test" style ="border: 1px solid black;">
+        <p>This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+
+    <button id="replaceWith">ReplaceWith</button>
+    <button id="replaceAll">ReplaceAll</button>   
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+       $('#replaceWith').click(function(){
+           $('#box p:first-child').replaceWith("<h2>Patel Karm</h2>");
+          // $('#box p:nth-child(2)').replaceWith("<h2>Patel Karm</h2>");
+       });
+
+       $('#replaceAll').click(function(){
+        //    $('<h2>Patel Karm</h2>').replaceAll("#box p");
+        // we can't write text here only tag we replace not with text
+        $('<h2>Patel Karm</h2>').replaceAll("#box p:first");
+       });
+
+
+    });
+</script>
+
+</html>

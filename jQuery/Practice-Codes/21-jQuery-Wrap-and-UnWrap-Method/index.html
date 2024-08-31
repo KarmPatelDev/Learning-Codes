@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+    .red{
+        background-color: red;
+    }
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test" style ="border: 1px solid black;">
+        <p>This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+
+    <button id="wrap">Wrap</button>
+    <button id="unwrap">Unwrap</button>   
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+    // it is wrap under the given tags
+    $('#wrap').click(function(){
+        $('#box p').wrap('<div class="red"></div>');
+    });
+    
+
+    //it is unwrap(remove) the parent 
+    $('#unwrap').click(function(){
+        $('#box p').unwrap();
+    });
+
+    });
+</script>
+
+</html>

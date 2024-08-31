@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    #first, #second{
+        border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+   
+    <div id="first" class="test">
+        <p>This is a methods that <b>occur</b> with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+
+    <ul>
+        <li>Karm</li>
+        <li>Patel</li>
+        <li><span>Shaileshkumar</span></li>
+        <li>Karm</li>
+        <li>Patel</li>
+        <li><span>Shaileshkumar</span></li>
+    </ul>
+
+    <div id="second" class="test">
+        <p class="filt">This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that <b>occur</b> with event with jQuery.</p>
+        <p>This is a methods that <span>occur</span> with event with jQuery.</p>
+        <p>This is a methods that <span class="filt">occur</span> with event with jQuery.</p>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function(){
+
+    // $('p').has('span').css('background', 'green'); // it is target the paragraphs though who have a span tag
+    // $('p').has('b').css('background', 'gold');
+    // $('p, ul li').has('b,span,.filt').css('background', 'gold'); // it is target the paragraphs and li tags though who have a span tag or bold tag or the parent tag though who have child class name filt.
+
+    // "is" method use with if condition => it return true or false
+    $('p').click(function(){
+
+        if($(this).parent().is('div')){
+        console.log($(this).parent().is('div'));
+    }
+    
+    });
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+    #box{
+        padding: 30px;
+        border: 5px solid black;
+        margin: 20px;
+        width: 300px;
+        height: 100px;
+        background: pink;
+    }
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test"></div>
+
+    <input type="text" id="inputbox">
+
+    <h2></h2>
+    <h3></h3>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+    // use for find which button triggered right, left, center in mouse
+    $(document).ready(function(){
+      // e.which :-  right => 3  left => 1  center => 2
+      $('#box').on("click dblclick mouseover mouseout", function(e){
+           $('h2').html("Event -:" + e.type + " " + e.which);
+      });
+
+      $('#inputbox').on("keydown", function(e){
+        // it is return only ASCII value not word or symbol
+        $('h3').html("Event -:" + e.type + " " + e.which);
+      });
+
+    });
+</script>
+
+</html>

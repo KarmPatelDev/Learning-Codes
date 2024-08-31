@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+<style>
+    #box{
+        padding: 30px;
+        border: 5px solid black;
+        margin: 20px;
+        width: 100px;
+        height: 100px;
+        background: pink;
+    }
+</style>
+  
+</head>
+<body>
+
+    <div id="box" class="test"></div>  
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<script>
+    // use fot find the x, y coordinates
+    $(document).ready(function(){
+
+      $(document).mousemove(function(e){  
+        $('#box').text("X: " + e.pageX + " Y: " + e.pageY);
+        var x = e.pageX;
+        var y = e.pageY;
+
+        $('#box').offset({top:y, left:x});
+      });
+
+    });
+</script>
+
+</html>

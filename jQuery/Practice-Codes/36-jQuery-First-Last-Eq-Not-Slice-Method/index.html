@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title></title>
+  <style>
+    #first, #second{
+        border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+   
+    <div id="first" class="test">
+        <p>This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+
+    <ul>
+        <li>Karm</li>
+        <li>Patel</li>
+        <li>Shaileshkumar</li>
+        <li>Karm</li>
+        <li>Patel</li>
+        <li>Shaileshkumar</li>
+    </ul>
+
+    <div id="second" class="test">
+        <p class="filt">This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery. This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+        <p>This is a methods that occur with event with jQuery.</p>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function(){
+
+        //Filtering Methods
+        $('div p').first().css('background-color', 'red');
+        $('div p').last().css('background-color', 'yellow');
+        $('ul li').eq(1).css('color', 'red'); // start from 0 to index
+        $('ul li').eq(-1).css('color', 'red'); // target to last
+        $('ul li').eq(-2).css('color', 'red'); // target to second last
+        // $('p').filter('.filt').css('color', 'red'); // to target specific tags
+        $('p.filt').css('color', 'red'); //same as above
+        $('p').not('.filt').css('color', 'blue'); //it select though who have not filt class
+        // $('ul li').slice(2).css('background-color', 'orange'); //it select index 2 to last index in li tags
+        $('ul li').slice(2, 3).css('background-color', 'orange'); //it select index 2 to index 3 but index 3 not included in li tags
+
+ 
+    
+    });
+
+</script>
+</html>
